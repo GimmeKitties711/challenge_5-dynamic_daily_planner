@@ -15,8 +15,20 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+
+  var idArray = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
+
+  for (i=0; i<$('.time-block').length; i++) {
+    if (dayjs().hour() > $('.time-block')[i].id.split("-")[1]) {
+      $('#' + idArray[i]).addClass('past');
+    } else if (dayjs().hour() === $('.time-block')[i].id.split("-")[1]) {
+      $('#' + idArray[i]).addClass('present');
+    } else { // same thing but with a < sign
+      $('#' + idArray[i]).addClass('future');
+    }
+  }
   // source for getting current hour: https://day.js.org/docs/en/get-set/hour
-  //
+  // source for adding classes to elements using jQuery: https://www.w3schools.com/jquery/jquery_css_classes.asp
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -29,7 +41,7 @@ $(function () {
   // source for correct endings for ordinal numbers: https://byjus.com/maths/ordinal-numbers/
   var currentDay = $('#currentDay');
   // source for jQuery selectors: https://www.w3schools.com/jquery/jquery_selectors.asp
-  currentDay.text(dayjs().format('dddd, MMMM DD') + endings[dayjs().date()-1]);
+  currentDay.text(dayjs().format('dddd, MMMM D') + endings[dayjs().date()-1]);
   // source for date formatting options in dayjs: https://day.js.org/docs/en/display/format
   // source for how to get current day of the month in dayjs: https://day.js.org/docs/en/get-set/date
 });
