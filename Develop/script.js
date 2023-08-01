@@ -2,13 +2,21 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  var idArray = ['#hour-9', '#hour-10', '#hour-11', '#hour-12', '#hour-13', '#hour-14', '#hour-15', '#hour-16', '#hour-17'];
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
-  //
+  
+  // $(idArray[1]).children()[2].addEventListener("click", function () {console.log('woooo')});
+  
+  for (i=0; i<idArray.length; i++) {
+    $(idArray[i]).children()[2].addEventListener("click", function () {console.log('woooo')}); // come back to the function later
+  }
+  // source for the children() function in jQuery: https://www.digitalocean.com/community/tutorials/jquery-parent-and-children-tree-traversal-functions-example
 
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -16,18 +24,17 @@ $(function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
 
-  var idArray = ['hour-9', 'hour-10', 'hour-11', 'hour-12', 'hour-13', 'hour-14', 'hour-15', 'hour-16', 'hour-17'];
-
   for (i=0; i<$('.time-block').length; i++) {
-    if (dayjs().hour() > $('.time-block')[i].id.split("-")[1]) {
-      $('#' + idArray[i]).addClass('past');
-    } else if (dayjs().hour() === $('.time-block')[i].id.split("-")[1]) {
-      $('#' + idArray[i]).addClass('present');
+    if (dayjs().hour() > Number($('.time-block')[i].id.split("-")[1])) {
+      $(idArray[i]).addClass('past');
+    } else if (dayjs().hour() === Number($('.time-block')[i].id.split("-")[1])) {
+      $(idArray[i]).addClass('present');
     } else { // same thing but with a < sign
-      $('#' + idArray[i]).addClass('future');
+      $(idArray[i]).addClass('future');
     }
   }
   // source for getting current hour: https://day.js.org/docs/en/get-set/hour
+  // source for converting a string into a number: https://dev.to/sanchithasr/7-ways-to-convert-a-string-to-number-in-javascript-4l
   // source for adding classes to elements using jQuery: https://www.w3schools.com/jquery/jquery_css_classes.asp
 
   // TODO: Add code to get any user input that was saved in localStorage and set
