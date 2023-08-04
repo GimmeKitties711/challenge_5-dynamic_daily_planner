@@ -3,6 +3,21 @@ body {
   font-size: 16px;
 }
 
+#saveNotification {
+  display: none;
+  font-size: 1.25rem;
+}
+
+/*
+--font_family_1: 'Lucida Sans', Arial, 'Lucida Sans Unicode', 'Lucida Grande', 'Trebuchet MS', sans-serif;
+--font_family_2: 'Gill Sans MT', 'Gill Sans', 'Trebuchet MS', Calibri, sans-serif;
+*/
+
+span {
+  font-family: 'Consolas', 'monospace', 'serif', 'sans-serif';
+  color: mediumvioletred;
+}
+
 textarea {
   background: transparent;
   border: none;

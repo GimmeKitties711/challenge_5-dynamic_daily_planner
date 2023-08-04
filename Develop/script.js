@@ -12,6 +12,7 @@ $(function () {
   // useful when saving the description in local storage?
   
   for (i=0; i<idArray.length; i++) {
+    var displayTimer;
     $(idArray[i]).children()[2].addEventListener("click", function () {
       // source for the children() and parent() functions in jQuery: https://www.digitalocean.com/community/tutorials/jquery-parent-and-children-tree-traversal-functions-example
 
@@ -21,6 +22,19 @@ $(function () {
       // source for getting the id of an element using jQuery: https://stackoverflow.com/questions/3239598/how-can-i-get-the-id-of-an-element-using-jquery
       // source for finding an element's siblings: https://stackoverflow.com/questions/7463242/how-do-i-select-a-sibling-element-using-jquery
       // source for using val() to get the current value from textarea: https://www.geeksforgeeks.org/how-to-get-the-value-of-a-textarea-in-jquery/
+      
+      var saveText = $('#saveNotification');
+      if (saveText.css("display") !== "none") {
+        saveText.hide(200);
+      }
+      saveText.show(400);
+      clearTimeout(displayTimer);
+      displayTimer = setTimeout(function () {
+        saveText.hide(400);
+      }, 4000);
+
+      // this function was inspired by the first answer to this Stack Overflow question: https://stackoverflow.com/questions/18607623/reset-timer-on-click-for-show-and-hide-jquery
+      // source for getting an element's css properties using jQuery: https://www.tutorialrepublic.com/jquery-tutorial/jquery-get-and-set-css-properties.php
     });
   }
 
@@ -46,7 +60,9 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
+  //for (i=0; i<idArray.length; i++) {
+    //$(idArray[i]).children()[1].text(localStorage.getItem($(this).attr('id')));
+  //}
 
   // TODO: Add code to display the current date in the header of the page.
   var endings = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st'];
