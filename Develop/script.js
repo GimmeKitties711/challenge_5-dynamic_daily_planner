@@ -63,6 +63,7 @@ $(function () {
   for (i=0; i<idArray.length; i++) {
     $(idArray[i]).children()[1].value = localStorage.getItem($(idArray[i]).attr('id'));
   }
+  // source for textarea value property: https://www.w3schools.com/jsref/prop_textarea_value.asp
 
   // TODO: Add code to display the current date in the header of the page.
   var endings = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st'];
