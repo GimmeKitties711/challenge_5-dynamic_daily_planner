@@ -23,7 +23,15 @@ $(function () {
       // source for finding an element's siblings: https://stackoverflow.com/questions/7463242/how-do-i-select-a-sibling-element-using-jquery
       // source for using val() to get the current value from textarea: https://www.geeksforgeeks.org/how-to-get-the-value-of-a-textarea-in-jquery/
       
+      //console.log($(this).siblings('.description').val());
+      //console.log($(this).siblings('.description').val().length);
+
       var saveText = $('#saveNotification');
+
+      //if ($(this).siblings('.description').val().length === 0) {
+        //saveText
+      //}
+
       if (saveText.css("display") !== "none") {
         saveText.hide(200);
       }

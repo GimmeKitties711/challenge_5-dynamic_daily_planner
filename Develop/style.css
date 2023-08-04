@@ -8,11 +8,6 @@ body {
   font-size: 1.25rem;
 }
 
-/*
---font_family_1: 'Lucida Sans', Arial, 'Lucida Sans Unicode', 'Lucida Grande', 'Trebuchet MS', sans-serif;
---font_family_2: 'Gill Sans MT', 'Gill Sans', 'Trebuchet MS', Calibri, sans-serif;
-*/
-
 span {
   font-family: 'Consolas', 'monospace', 'serif', 'sans-serif';
   color: mediumvioletred;
@@ -29,6 +24,9 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  /* added resize and overflow properties according to https://www.w3schools.com/cssref/css3_pr_resize.php to make the text box resizable vertically */
+  resize: vertical;
+  overflow: auto;
 }
 
 .time-block {
