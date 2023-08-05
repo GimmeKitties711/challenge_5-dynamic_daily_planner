@@ -13,8 +13,8 @@ $(function () {
   // useful when saving the description in local storage?
 
   // 'this' represents the save button that was clicked
-  // the id of the save button's parent can be found using the parent() function: $(this).parent().attr('id')
-  // the id can be used as the key for localStorage.setItem
+  // the id of the save button's parent can be found using the parent() and attr() functions: $(this).parent().attr('id')
+  // the id can be used as the key for localStorage.setItem()
 
   for (i=0; i<idArray.length; i++) {
     var displayTimer;
@@ -24,7 +24,7 @@ $(function () {
       // source for the children() and parent() functions in jQuery: https://www.digitalocean.com/community/tutorials/jquery-parent-and-children-tree-traversal-functions-example
 
       localStorage.setItem($(this).parent().attr('id'), $(this).siblings('.description').val());
-      // the first parameter is the id attribute of the save button's parent, the second parameter is the text the user has written into the textarea. all <textarea> divs have the class ".description" so this can be used as a filter in the siblings() function.
+      // the first parameter is the id attribute of the save button's parent, the second parameter is the text the user has written into the textarea. all <textarea> divs have the class ".description" so this can be used as the filter in the siblings() function.
 
       // source for how to use localStorage: https://www.w3schools.com/jsref/prop_win_localstorage.asp
       // source for using '$(this)' instead of 'this' to enable jQuery functionality: https://www.geeksforgeeks.org/difference-between-this-and-this-in-jquery/
@@ -40,7 +40,7 @@ $(function () {
       saveText.show(400); // the animation of showing saveText takes 400 ms (the default value)
       clearTimeout(displayTimer); // reset the timer every time the save button is clicked
       displayTimer = setTimeout(function () {
-        saveText.hide(400); // hide saveText at the default speed (400 ms)
+        saveText.hide(400); // hide saveText at the default speed (takes 400 ms)
       }, 4000); // the hide animation takes place after 4000 ms (4 sec) have passed
 
       // this function was inspired by the first answer to this Stack Overflow question: https://stackoverflow.com/questions/18607623/reset-timer-on-click-for-show-and-hide-jquery
@@ -65,7 +65,7 @@ $(function () {
       $(idArray[i]).addClass('future');
     }
   }
-  // source for getting current hour: https://day.js.org/docs/en/get-set/hour
+  // source for getting current hour using dayjs: https://day.js.org/docs/en/get-set/hour
   // source for converting a string into a number: https://dev.to/sanchithasr/7-ways-to-convert-a-string-to-number-in-javascript-4l
   // source for adding classes to elements using jQuery: https://www.w3schools.com/jquery/jquery_css_classes.asp
 
@@ -73,7 +73,7 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
 
-  // the id attribute of each time block was used as the localStorage key when the save button was clicked. it is used as the parameter in localStorage.getItem, which writes the value from localStorage into the corresponding text area.
+  // the id attribute of each time block was used as the localStorage key when the save button was clicked. it is used as the parameter in localStorage.getItem(), which writes the value from localStorage into the corresponding text area.
 
   for (i=0; i<idArray.length; i++) {
     $(idArray[i]).children()[1].value = localStorage.getItem($(idArray[i]).attr('id')); // the children() function yields an array [<div>, <textarea>, <button>] specific to the time block denoted by $(idArray[i]). the text area can be obtained using index 1.
@@ -91,5 +91,5 @@ $(function () {
   // dayjs yields the date format as 'Friday, August 4' (for example). the ending ('-th' for this example) is added on using the endings array. the correct ending is obtained using index [dayjs().date()-1] because dayjs().date() yields a number ranging from 1 to 31, which corresponds to indexes 0-30. the endings array still works for months with less than 31 days, the only difference is that not all of the entries are used for those months.
 
   // source for date formatting options in dayjs: https://day.js.org/docs/en/display/format
-  // source for how to get current day of the month in dayjs: https://day.js.org/docs/en/get-set/date
+  // source for how to get the current day of the month in dayjs: https://day.js.org/docs/en/get-set/date
 });
