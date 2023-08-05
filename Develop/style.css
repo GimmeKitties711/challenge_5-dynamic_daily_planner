@@ -5,12 +5,13 @@ body {
 
 #saveNotification {
   display: none;
-  font-size: 1.25rem;
+  font-size: 1.25rem; /* font size is 1 rem (16px) according to the <body> selector. I changed it to 1.25rem to make the save notification div match its <p> siblings, whose font size is 1.25 rem because of class="lead". */
 }
 
 span {
   font-family: 'Consolas', 'monospace', 'serif', 'sans-serif';
   color: mediumvioletred;
+  /* in the mock-up provided for this challenge, the 'localStorage' part of the save notification has a different color and font than the rest of the message. this effect is achieved using the <span> tag and applying special styling to it. */
 }
 
 textarea {
@@ -24,7 +25,7 @@ textarea {
 
 .description {
   white-space: pre-wrap;
-  /* added resize and overflow properties according to https://www.w3schools.com/cssref/css3_pr_resize.php to make the text box resizable vertically */
+  /* added resize and overflow properties according to https://www.w3schools.com/cssref/css3_pr_resize.php to make the text box resizable vertically. I did this in case the user might want to save events and special instructions or notes associated with them. an example of this can be found in this project's README. */
   resize: vertical;
   overflow: auto;
 }
