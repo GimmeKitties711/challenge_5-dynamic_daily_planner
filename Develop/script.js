@@ -81,12 +81,15 @@ $(function () {
   // source for textarea value property: https://www.w3schools.com/jsref/prop_textarea_value.asp
 
   // TODO: Add code to display the current date in the header of the page.
+  
   var endings = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th', 'th', 'st'];
   // [1st, 2nd, 3rd, 4th, 5th, 6th, 7th, 8th, 9th, 10th, 11th, 12th, 13th, 14th, 15th, 16th, 17th, 18th, 19th 20th, 21st, 22nd, 23rd, 24th, 25th, 26th, 27th, 28th, 29th, 30th, 31st]
   // source for correct endings for ordinal numbers: https://byjus.com/maths/ordinal-numbers/
+
   var currentDay = $('#currentDay'); // this is the place where the current date goes, it corresponds to the second <p> element
 
   // source for jQuery selectors: https://www.w3schools.com/jquery/jquery_selectors.asp
+
   currentDay.text(dayjs().format('dddd, MMMM D') + endings[dayjs().date()-1]);
   // dayjs yields the date format as 'Friday, August 4' (for example). the ending ('-th' for this example) is added on using the endings array. the correct ending is obtained using index [dayjs().date()-1] because dayjs().date() yields a number ranging from 1 to 31, which corresponds to indexes 0-30. the endings array still works for months with less than 31 days, the only difference is that not all of the entries are used for those months.
 
