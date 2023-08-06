@@ -29,7 +29,7 @@ $(function () {
       // source for how to use localStorage: https://www.w3schools.com/jsref/prop_win_localstorage.asp
       // source for using '$(this)' instead of 'this' to enable jQuery functionality: https://www.geeksforgeeks.org/difference-between-this-and-this-in-jquery/
       // source for getting the id of an element using jQuery: https://stackoverflow.com/questions/3239598/how-can-i-get-the-id-of-an-element-using-jquery
-      // source for finding an element's siblings: https://stackoverflow.com/questions/7463242/how-do-i-select-a-sibling-element-using-jquery
+      // source for finding an element's siblings using jQuery: https://stackoverflow.com/questions/7463242/how-do-i-select-a-sibling-element-using-jquery
       // source for using val() to get the current value from textarea: https://www.geeksforgeeks.org/how-to-get-the-value-of-a-textarea-in-jquery/
 
       var saveText = $('#saveNotification');

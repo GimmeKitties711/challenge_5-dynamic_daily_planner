@@ -1,112 +1,67 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Challenge 5: Dynamic Daily Planner
 
-## Your Task
+## Description
+In a typical day, there are often a bunch of different events to keep track of. It can be difficult to store this information mentally, which makes it important to have a daily planner app. This project allows the user to write events in text boxes. Each hour block has its own text box, and each box can be expanded vertically to allow for more writing space. The flexible box height allows the user to write special notes or guidelines associated with their events - for example, the event "Buy groceries" can be followed by a list of grocery items. Clicking the save button will save your answers in localStorage, and your answers will remain in their respective slots even after the page is refreshed or reloaded. This project taught me how to add classes to divs, use jQuery selectors and functions to point to specific elements and their attributes, and obtain information about the current time using the dayjs library.
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+## Installation
+No installation is required for this project.
 
-## User Story
+## Usage
+Write your events in the text boxes to the left of the save buttons. When you are satisfied with your answers and you would like to save them for the future, click the save button. This will reveal a notification at the top of this page that says: 
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+![Save notification message](Assets/save_notification.png)
 
-## Acceptance Criteria
+The notification will stay on the screen for 4-5 seconds, then disappear. Clicking the save button saves your input to localStorage, which means that your most recent events saved in a time block will remain in that block after the page is refreshed.
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+**Note:** you can change the height of the text boxes by clicking on the triangle icon in the bottom right corner:
 
-The following animation demonstrates the application functionality:
+![How to change text box height](Assets/expand_text_box.png)
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+Dragging the icon upwards compresses the text box, dragging it downwards expands the box.
 
-## Acceptance Criteria Simplified
+The following screenshots demonstrate the appearance of the application:
 
-In this project you'll be creating a daily planner for keeping track of tasks. The HTML is given to you for this, you just have to create the JavaScript.
+![Top of daily planner](Assets/daily_planner_top.png)
+![Bottom of daily planner](Assets/daily_planner_bottom.png)
+![Save button clicked](Assets/save_button_clicked.png)
 
-You must complete the following tasks for this project:
+## Credits
+Asked questions in the *#02-ask-the-class* channel on Slack and received assistance from TA Michael Seaman and instructor Robbert Wijtman.
 
-* Show the current day at the top of the calendar (day and date, see gif for format)
-* A series of timeblock elements must exist on the page (you can create these dynamically in JavaScript or place them manually on the page, either will work for now). These should match the spec you see below.
-* Each timeblock has an hour associated with it. Take the current time into account and compare it to the hour of the timeblock. Give each timeblock a specific color depending on if it has already happened, is happening now, or will happen in the future.
-* You should have a textbox inside each timeblock, to allow entering events.
-* There should be a button to the right of each timeblock. When this button is clicked, save the corresponding event to localstorage for that time slot.
-* When loading the page, fetch all the stored data for each timeslot from localstorage and put those values in the corresponding textboxes for the given timeblocks.
+The following web resources helped me write the code for this project:
 
-## Grading Requirements
+1. [Resize property in CSS](https://www.w3schools.com/cssref/css3_pr_resize.php)
+2. [jQuery: children() and parent() functions](https://www.digitalocean.com/community/tutorials/jquery-parent-and-children-tree-traversal-functions-example)
+3. [How to use localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp)
+4. [Using '$(this)' to enable jQuery functionality](https://www.geeksforgeeks.org/difference-between-this-and-this-in-jquery/)
+5. [jQuery: getting an element's id](https://stackoverflow.com/questions/3239598/how-can-i-get-the-id-of-an-element-using-jquery)
+6. [jQuery: finding an element's siblings](https://stackoverflow.com/questions/7463242/how-do-i-select-a-sibling-element-using-jquery)
+7. [Getting the current value from a textarea div using val()](https://www.geeksforgeeks.org/how-to-get-the-value-of-a-textarea-in-jquery/)
+8. [Stack Overflow: How to reset a timer when a button is clicked](https://stackoverflow.com/questions/18607623/reset-timer-on-click-for-show-and-hide-jquery)
+9. [jQuery: getting an element's CSS properties](https://www.tutorialrepublic.com/jquery-tutorial/jquery-get-and-set-css-properties.php)
+10. [dayjs: getting the current hour](https://day.js.org/docs/en/get-set/hour)
+11. [Converting a string into a number](https://dev.to/sanchithasr/7-ways-to-convert-a-string-to-number-in-javascript-4l)
+12. [jQuery: adding classes to elements](https://www.w3schools.com/jquery/jquery_css_classes.asp)
+13. [textarea value property](https://www.w3schools.com/jsref/prop_textarea_value.asp)
+14. [Endings for ordinal (position) numbers](https://byjus.com/maths/ordinal-numbers/)
+15. [How to use jQuery selectors](https://www.w3schools.com/jquery/jquery_selectors.asp)
+16. [dayjs: date formatting options](https://day.js.org/docs/en/display/format)
+17. [dayjs: how to get the current day of the month](https://day.js.org/docs/en/get-set/date)
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+## Contributing
+Contribution is not necessary for this project.
 
-This Challenge is graded based on the following criteria:
+## Tests
+Tests have not been written for this application.
 
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-  * Uses a date utility library to work with date and time
-
-### Deployment: 32%
-
-* Application deployed at live URL
-
-* Application loads with no errors
-
-* Application GitHub URL submitted
-
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the Challenge instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+## Questions
+If you have any questions for me, you can [follow me on GitHub](https://github.com/GimmeKitties711) or email me at eric20wang.wang@gmail.com.
